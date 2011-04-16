@@ -43,8 +43,18 @@ QUnit.specify("My Awesome WebApp",function(){
 					assert(field.hasClass('valid')).equals(true);
 				});
 
-			it('should submit the form when the user clicks the "Join" button.');
-			it('should submit to the action URL of the form with an AJAX POST.');
+			it('should submit the form when the user clicks the "Join" button.',function(){
+				var submitted;
+				form.submit(function(e){
+					e.preventDefault();
+					submitted = true;
+				});
+
+				form.find('#join').click();
+				assert(submitted).isTrue();
+			});
+
+			it('should submit to the action URL of the form with an AJAX POST.');			
 		});
 	});
 });
