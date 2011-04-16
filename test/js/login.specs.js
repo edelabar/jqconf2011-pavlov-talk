@@ -37,7 +37,12 @@ QUnit.specify("My Awesome WebApp",function(){
 				});
 			});
 
-			it('should validate that the email field is valid when the cursor leaves.');
+			given('john.doe@trifecta.com','mickey.mouse@disney.com')
+				.it('should validate that the email field is valid when the cursor leaves.',function(email){
+					var field = form.find('#email-field').focus().val(email).blur()
+					assert(field.hasClass('valid')).equals(true);
+				});
+
 			it('should submit the form when the user clicks the "Join" button.');
 			it('should submit to the action URL of the form with an AJAX POST.');
 		});
