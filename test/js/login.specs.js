@@ -21,7 +21,14 @@ QUnit.specify("My Awesome WebApp",function(){
 				});
 			});
 
-			it('should show a field label when the field is empty when the cursor leaves.');
+			it('should show a field label when the field is empty when the cursor leaves.',function(){
+				form.find(':text,:password').each(function(){
+					var label = $(this).prev();
+					$(this).focus().blur();
+					assert(label.css("display")).isNotEqualTo('none');
+				});
+			});
+
 			it('should keep a field label hidden when the field is not empty when the cursor leaves.');
 			it('should validate that the email field is valid when the cursor leaves.');
 			it('should submit the form when the user clicks the "Join" button.');
