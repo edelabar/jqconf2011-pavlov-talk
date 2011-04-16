@@ -15,7 +15,15 @@
 				}
 			});
 
-			$(this).addClass('enhanced');
+			$(this).submit(function(e){
+				e.preventDefault();
+				var t = $(this);
+				$.post(this.action,t.serialize(),function(data){
+					if( data && data.success ) {
+						t.addClass('loggedIn');
+					}
+				});
+			}).addClass('enhanced');
 		});
 	};
 
