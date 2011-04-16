@@ -11,6 +11,12 @@ QUnit.specify("My Awesome WebApp",function(){
 			var form;
 			before(function(){
 				form = $('#login').loginForm();
+
+				$.mockjax({
+					url: '/login',
+					responseTime: 200,
+					responseText: {success:true}
+				});
 			});
 
 			it('should hide a field label when the field has focus.',function(){
@@ -54,7 +60,14 @@ QUnit.specify("My Awesome WebApp",function(){
 				assert(submitted).isTrue();
 			});
 
-			it('should submit to the action URL of the form with an AJAX POST.');			
+			it('should submit to the action URL of the form with an AJAX POST.',function(){
+				form.submit();
+
+				wait(500,function(){
+					assert(form.hasClass('loggedIn')).isTrue();
+				});
+			});
+
 		});
 	});
 });
