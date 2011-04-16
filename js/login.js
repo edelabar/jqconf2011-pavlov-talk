@@ -7,6 +7,11 @@
 			}).blur(function(){
 				if(!$(this).val()){
 					$(this).prev().show();
+				} else {
+					$(this).removeClass('valid');
+					if($(this).is('#email-field') && /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/.test($(this).val())) {	
+						$(this).addClass('valid');
+					}
 				}
 			});
 
