@@ -1,6 +1,6 @@
-# Natural Language UI Testing using Behavior Driven Development with Pavlov and QUnit
+## Natural Language UI Testing using Behavior Driven Development with Pavlov and QUnit
 
-## A talk (to be) given at jQuery Conference: San Francisco Bay Area 2011 on 4/17/2011 by [Eric DeLabar](http://twitter.com/edelabar)
+### A talk (to be) given at jQuery Conference: San Francisco Bay Area 2011 on 4/17/2011 by [Eric DeLabar](http://twitter.com/edelabar)
 
 Using concepts borrowed from the RSpec and Cucumber projects we'll explore the process of converting a stakeholder-readable design specification of a user interface feature into a QUnit test suite.
 
